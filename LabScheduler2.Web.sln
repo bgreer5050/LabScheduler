@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabScheduler2.Web", "LabScheduler2.Web\LabScheduler2.Web.csproj", "{D453E5E4-2AD7-44D2-A3AF-8ACE801EB1F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabScheduler2.Domain", "LabScheduler2.Domain\LabScheduler2.Domain.csproj", "{4EE7DAAA-EF53-4FDD-AC29-DA05C35A44DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabScheduler2.Data", "LabScheduler2.Data\LabScheduler2.Data.csproj", "{8803F5FE-AE3E-4D1B-9B84-C9EFFCA2EFA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabScheduler2.BLL", "LabScheduler2.BLL\LabScheduler2.BLL.csproj", "{3B3CC108-9AC7-4171-9A14-C067792C416F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler2.Testing", "Scheduler2.Testing\Scheduler2.Testing.csproj", "{EC64E2CD-0115-4648-A890-D29B8CA2B372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabScheduler2.ConsoleApp", "LabScheduler2.ConsoleApp\LabScheduler2.ConsoleApp.csproj", "{4AB922E1-6AF4-4FD7-A1E1-369A5010F4BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabManager.DAL", "LabManager.DAL\LabManager.DAL.csproj", "{3F5952FB-BFFE-49A2-8C13-4B63E1AEFFD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D453E5E4-2AD7-44D2-A3AF-8ACE801EB1F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D453E5E4-2AD7-44D2-A3AF-8ACE801EB1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D453E5E4-2AD7-44D2-A3AF-8ACE801EB1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D453E5E4-2AD7-44D2-A3AF-8ACE801EB1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE7DAAA-EF53-4FDD-AC29-DA05C35A44DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE7DAAA-EF53-4FDD-AC29-DA05C35A44DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE7DAAA-EF53-4FDD-AC29-DA05C35A44DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE7DAAA-EF53-4FDD-AC29-DA05C35A44DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8803F5FE-AE3E-4D1B-9B84-C9EFFCA2EFA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8803F5FE-AE3E-4D1B-9B84-C9EFFCA2EFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8803F5FE-AE3E-4D1B-9B84-C9EFFCA2EFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8803F5FE-AE3E-4D1B-9B84-C9EFFCA2EFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B3CC108-9AC7-4171-9A14-C067792C416F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3CC108-9AC7-4171-9A14-C067792C416F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3CC108-9AC7-4171-9A14-C067792C416F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3CC108-9AC7-4171-9A14-C067792C416F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC64E2CD-0115-4648-A890-D29B8CA2B372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC64E2CD-0115-4648-A890-D29B8CA2B372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC64E2CD-0115-4648-A890-D29B8CA2B372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC64E2CD-0115-4648-A890-D29B8CA2B372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB922E1-6AF4-4FD7-A1E1-369A5010F4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB922E1-6AF4-4FD7-A1E1-369A5010F4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB922E1-6AF4-4FD7-A1E1-369A5010F4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB922E1-6AF4-4FD7-A1E1-369A5010F4BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5952FB-BFFE-49A2-8C13-4B63E1AEFFD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5952FB-BFFE-49A2-8C13-4B63E1AEFFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5952FB-BFFE-49A2-8C13-4B63E1AEFFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5952FB-BFFE-49A2-8C13-4B63E1AEFFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
