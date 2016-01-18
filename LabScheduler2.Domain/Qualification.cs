@@ -11,6 +11,7 @@ namespace LabScheduler2.Domain
         public Employee employee { get; set; }
         public Bench bench { get; set; }
         public QualificationStatus Status { get; set; }
+
     }
 
     public enum QualificationStatus

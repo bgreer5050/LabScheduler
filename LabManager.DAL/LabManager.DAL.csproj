@@ -95,6 +95,62 @@
     <Compile Include="Migrations\201601020121576_I12.Designer.cs">
       <DependentUpon>201601020121576_I12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601020150047_I121.cs" />
+    <Compile Include="Migrations\201601020150047_I121.Designer.cs">
+      <DependentUpon>201601020150047_I121.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601020150377_I13.cs" />
+    <Compile Include="Migrations\201601020150377_I13.Designer.cs">
+      <DependentUpon>201601020150377_I13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601021249111_I14.cs" />
+    <Compile Include="Migrations\201601021249111_I14.Designer.cs">
+      <DependentUpon>201601021249111_I14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601021328413_I15.cs" />
+    <Compile Include="Migrations\201601021328413_I15.Designer.cs">
+      <DependentUpon>201601021328413_I15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601021330419_I16.cs" />
+    <Compile Include="Migrations\201601021330419_I16.Designer.cs">
+      <DependentUpon>201601021330419_I16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601021439494_I17.cs" />
+    <Compile Include="Migrations\201601021439494_I17.Designer.cs">
+      <DependentUpon>201601021439494_I17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601021442014_I18.cs" />
+    <Compile Include="Migrations\201601021442014_I18.Designer.cs">
+      <DependentUpon>201601021442014_I18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601032204290_I19.cs" />
+    <Compile Include="Migrations\201601032204290_I19.Designer.cs">
+      <DependentUpon>201601032204290_I19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601032238301_I20.cs" />
+    <Compile Include="Migrations\201601032238301_I20.Designer.cs">
+      <DependentUpon>201601032238301_I20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601051541213_I21.cs" />
+    <Compile Include="Migrations\201601051541213_I21.Designer.cs">
+      <DependentUpon>201601051541213_I21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601181641303_20150118_1.cs" />
+    <Compile Include="Migrations\201601181641303_20150118_1.Designer.cs">
+      <DependentUpon>201601181641303_20150118_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601181648398_20150118_2.cs" />
+    <Compile Include="Migrations\201601181648398_20150118_2.Designer.cs">
+      <DependentUpon>201601181648398_20150118_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601181650229_20150118_3.cs" />
+    <Compile Include="Migrations\201601181650229_20150118_3.Designer.cs">
+      <DependentUpon>201601181650229_20150118_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601181807437_20150118_4.cs" />
+    <Compile Include="Migrations\201601181807437_20150118_4.Designer.cs">
+      <DependentUpon>201601181807437_20150118_4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -141,6 +197,48 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601020121576_I12.resx">
       <DependentUpon>201601020121576_I12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601020150047_I121.resx">
+      <DependentUpon>201601020150047_I121.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601020150377_I13.resx">
+      <DependentUpon>201601020150377_I13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601021249111_I14.resx">
+      <DependentUpon>201601021249111_I14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601021328413_I15.resx">
+      <DependentUpon>201601021328413_I15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601021330419_I16.resx">
+      <DependentUpon>201601021330419_I16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601021439494_I17.resx">
+      <DependentUpon>201601021439494_I17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601021442014_I18.resx">
+      <DependentUpon>201601021442014_I18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601032204290_I19.resx">
+      <DependentUpon>201601032204290_I19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601032238301_I20.resx">
+      <DependentUpon>201601032238301_I20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601051541213_I21.resx">
+      <DependentUpon>201601051541213_I21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601181641303_20150118_1.resx">
+      <DependentUpon>201601181641303_20150118_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601181648398_20150118_2.resx">
+      <DependentUpon>201601181648398_20150118_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601181650229_20150118_3.resx">
+      <DependentUpon>201601181650229_20150118_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601181807437_20150118_4.resx">
+      <DependentUpon>201601181807437_20150118_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

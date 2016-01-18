@@ -7,6 +7,11 @@ namespace LabScheduler2.Domain
 {
     public enum BenchStatus
     {
+        Running,
+        IdleScheduled,
+        IdleNoOperatorAvailable,
+        DownUnscheduledMaintenance,
+        DownScheduledMaintenance
 
     }
 
