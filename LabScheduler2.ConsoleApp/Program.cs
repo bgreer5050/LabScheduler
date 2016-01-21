@@ -1,6 +1,8 @@
 ﻿using LabScheduler2.Domain;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.EntityClient;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +13,57 @@ namespace LabScheduler2.ConsoleApp
     {
         static void Main(string[] args)
         {
+    //        System.Data.SqlClient.SqlConnectionStringBuilder bui = new System.Data.SqlClient.SqlConnectionStringBuilder();
+
+    //        string providerName = "System.Data.SqlClient";
+    //        string serverName = ".";
+    //        string dataBaseName = "LabManager.DAL.LabContext";
+
+          
+
+    //        SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+    //        sqlBuilder.DataSource = serverName;
+    //        sqlBuilder.InitialCatalog = dataBaseName;
+    //        sqlBuilder.IntegratedSecurity = true;
+
+    //        string providerString = sqlBuilder.ToString();
+
+    //      EntityConnectionStringBuilder entityBuilder = new EntityConnectionStringBuilder();
+
+
+
+    //        entityBuilder.Provider = providerName;
+    //        entityBuilder.ProviderConnectionString = providerString;
+    //        entityBuilder.Metadata = @"res://*/LabContext.csdl|
+    //                        res://*/LabContext.ssdl|
+    //                        res://*/LabContext.msl";
+
+    //        using (EntityConnection conn =
+    //new EntityConnection(entityBuilder.ToString()))
+    //        {
+    //            conn.Open();
+    //            Console.WriteLine("Just testing the connection.");
+    //            conn.Close();
+    //        }
+           // Console.ReadLine();
+            //throw new NotImplementedException();
+
             LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
-            LabScheduler2.BLL.LabRepository repo = new BLL.LabRepository(db);
+            //LabScheduler2.BLL.LabRepository repo = new BLL.LabRepository(db);
 
             List<Qualification> qualifications = new List<Qualification>();
-            
 
-            
 
-            foreach(Bench _bench in db.Benches.ToList())
+            foreach (Qualification q in db.Qualifications)
+            {
+                Console.WriteLine(q.employee.FirstName);
+                Console.WriteLine(q.bench.Description);
+                Console.ReadLine();
+            }
+
+            throw new NotImplementedException();
+
+            foreach (Bench _bench in db.Benches.ToList())
             {
 
                 Console.WriteLine(_bench.Description);
@@ -117,7 +161,7 @@ namespace LabScheduler2.ConsoleApp
 
                 }
 
-                if (_bench.Description == "Ifobb")
+                if (_bench.Description == "IFOB")
                 {
                     _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
                     _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
@@ -138,7 +182,7 @@ namespace LabScheduler2.ConsoleApp
 
                 }
 
-                if (_bench.Description == "Vit D")
+                if (_bench.Description == "VIT D")
                 {
                     _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Evelyn").FirstOrDefault(), Status = QualificationStatus.Qualified });
                     _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
@@ -161,16 +205,16 @@ namespace LabScheduler2.ConsoleApp
 
             throw new NotImplementedException();
 
-            List<ScheduleBlock> blocks =  repo.GetAllScheduleBlocks().ToList();
+            //List<ScheduleBlock> blocks =  repo.GetAllScheduleBlocks().ToList();
 
-            foreach(ScheduleBlock b in blocks)
-            {
-                Console.WriteLine(b.Bench.Description);
-                Console.WriteLine(b.Hour.ToLongDateString());
-                Console.ReadLine();
-            }
+            //foreach(ScheduleBlock b in blocks)
+            //{
+            //    Console.WriteLine(b.Bench.Description);
+            //    Console.WriteLine(b.Hour.ToLongDateString());
+            //    Console.ReadLine();
+            //}
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
             //int counter = db.ScheduleBlocks.Where(c => c.Hour.Year != 2016).Count();
 

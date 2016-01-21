@@ -12,9 +12,11 @@ namespace LabManager.DAL
    public class LabContext : DbContext
     {
 
-        public LabContext()
+
+        public LabContext():base()
         {
-            Debug.WriteLine(this.Database.Connection.ConnectionString.ToString());
+           
+            //Debug.WriteLine(this.Database.Connection.ConnectionString.ToString());
 
         }
 

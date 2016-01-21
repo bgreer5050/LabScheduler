@@ -10,7 +10,7 @@ namespace LabManager.DAL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
                
         }
 

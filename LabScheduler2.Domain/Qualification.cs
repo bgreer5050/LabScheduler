@@ -8,8 +8,8 @@ namespace LabScheduler2.Domain
     public class Qualification
     {
         public int Id { get; set; }
-        public Employee employee { get; set; }
-        public Bench bench { get; set; }
+        public virtual Employee employee { get; set; }
+        public virtual Bench bench { get; set; }
         public QualificationStatus Status { get; set; }
 
     }

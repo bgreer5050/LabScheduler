@@ -13,7 +13,8 @@ namespace LabScheduler2.Domain
         public virtual List<Qualification> Qualifications { get; set; }
 
         public string Description2 { get; set; }
-        public string Description5 { get; set; }
+    
+
 
 
 
