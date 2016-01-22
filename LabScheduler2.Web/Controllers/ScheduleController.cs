@@ -1,5 +1,4 @@
-﻿using LabScheduler2.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,38 +6,41 @@ using System.Web.Mvc;
 
 namespace LabScheduler2.Web.Controllers
 {
-    public class QualificationsController : Controller
+    public class ScheduleController : Controller
     {
-        // GET: Qualifications
+        // GET: Schedule
         public ActionResult Index()
         {
             LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
-            LabScheduler2.BLL.LabRepository repo = new BLL.LabRepository(db);
-            List<LabScheduler2.Web.Models.QualificationsListViewModel> vm = new List<Models.QualificationsListViewModel>();
 
-            foreach(Bench _bench in repo.GetAllBenches())
+            List<Domain.ScheduleBlock> Blocks = db.ScheduleBlocks.Take(500).ToList();
+            foreach(Domain.ScheduleBlock block in Blocks)
             {
-                vm.Add(new Models.QualificationsListViewModel { bench = _bench, qualifications = _bench.Qualifications });
+                
             }
 
-            return View(vm);
+            return View(Blocks);
         }
 
-        
 
-        // GET: Qualifications/Details/5
+        public void ScheduleTony()
+        {
+
+        }
+
+        // GET: Schedule/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Qualifications/Create
+        // GET: Schedule/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Qualifications/Create
+        // POST: Schedule/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -54,13 +56,13 @@ namespace LabScheduler2.Web.Controllers
             }
         }
 
-        // GET: Qualifications/Edit/5
+        // GET: Schedule/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Qualifications/Edit/5
+        // POST: Schedule/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -76,13 +78,13 @@ namespace LabScheduler2.Web.Controllers
             }
         }
 
-        // GET: Qualifications/Delete/5
+        // GET: Schedule/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Qualifications/Delete/5
+        // POST: Schedule/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

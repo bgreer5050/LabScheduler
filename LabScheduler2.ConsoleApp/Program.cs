@@ -51,18 +51,23 @@ namespace LabScheduler2.ConsoleApp
             LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
             //LabScheduler2.BLL.LabRepository repo = new BLL.LabRepository(db);
 
+            //List<Qualification> qs = db.Qualifications.ToList();
+            //db.Qualifications.RemoveRange(qs);
+            //db.SaveChanges();
+
             List<Qualification> qualifications = new List<Qualification>();
 
 
-            foreach (Qualification q in db.Qualifications)
+            foreach (Qualification q in db.Qualifications.ToList())
             {
                 Console.WriteLine(q.employee.FirstName);
                 Console.WriteLine(q.bench.Description);
                 Console.ReadLine();
             }
 
-            throw new NotImplementedException();
-
+            //throw new NotImplementedException();
+            Console.WriteLine("S");
+            Console.ReadLine();
             foreach (Bench _bench in db.Benches.ToList())
             {
 

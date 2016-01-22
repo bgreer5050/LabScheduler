@@ -1,0 +1,76 @@
+﻿@model IEnumerable<LabScheduler2.Domain.ScheduleBlock>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    /*td,th{
+        width:130px;
+    }*/
+</style>
+<h2>Scheduling Portal</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-condensed table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Hour)
+        </th>
+        <th>Vista</th>
+        <th>Serology</th>
+        <th>UA</th>
+        <th>Coag</th>
+        <th>Hem 1</th>
+        <th>Stools</th>
+        <th>DSX</th>
+        <th>Variant</th>
+        <th>Centaur</th>
+        <th>USR</th>
+        <th>Sypigg</th>
+        <th>Diff</th>
+        <th>Hem 2</th>
+        <th>Sysmex</th>
+        <th>IFOB</th>
+        <th>Architect</th>
+        <th>ESR</th>
+        <th>VIT D</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hour)
+           
+
+
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+        </td>
+        <td></td>
+        <td style="background-color:aquamarine">MG</td>
+
+        <td>HD</td>
+        <td style="background-color:crimson"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+    </tr>
+}
+
+</table>
