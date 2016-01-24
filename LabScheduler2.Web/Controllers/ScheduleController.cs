@@ -13,7 +13,7 @@ namespace LabScheduler2.Web.Controllers
         {
             LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
 
-            List<Domain.ScheduleBlock> Blocks = db.ScheduleBlocks.Take(500).ToList();
+            List<Domain.ScheduleBlock> Blocks = db.ScheduleBlocks.Take(1500).ToList();
             foreach(Domain.ScheduleBlock block in Blocks)
             {
                 

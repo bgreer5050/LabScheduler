@@ -8,6 +8,75 @@
         width:130px;
     }*/
 </style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+<script src="~/Scripts/jquery-1.11.3.js"></script>
+<script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $('.headingClick').click(function () {
+            $("#divQualifiedEmployees").attr('title', 'Qualified Employees');
+
+            $.ajax({
+                url: 'Qualifications/GetQualifiedEmployees',
+                data: 'bench=' + $(this).attr('title'),
+                success: ShowDialog,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 404) {
+                        ShowError('LabManger Server Failed To Respond');
+                    }
+                    else
+                    {
+                        ShowError(xhr.status.toString());
+                    }
+                },
+                cache:false
+
+            });
+
+            
+           
+        });
+    })
+    function ShowError(errorMessage)
+    {
+        $("#divError").attr('title', 'Server Error');
+        $("#divError").html(errorMessage);
+        $("#divError").dialog({
+            modal: true,
+            autoOpen: true
+
+        });
+    }
+    function ShowDialog()
+    {
+        alert('show');
+    }
+
+    function ShowQualifiedEmployees()
+    {
+        $('#divQualifiedEmployees').dialog({
+            modal: true,
+            autoOpen: true
+
+
+        });
+    }
+
+</script>
+
+<div id="divQualifiedEmployees" style="display:none">
+
+</div>
+
+<div id="divError" style="display:none">
+
+</div>
+
+
 <h2>Scheduling Portal</h2>
 
 <p>
@@ -18,24 +87,24 @@
         <th>
             @Html.DisplayNameFor(model => model.Hour)
         </th>
-        <th>Vista</th>
-        <th>Serology</th>
-        <th>UA</th>
-        <th>Coag</th>
-        <th>Hem 1</th>
-        <th>Stools</th>
-        <th>DSX</th>
-        <th>Variant</th>
-        <th>Centaur</th>
-        <th>USR</th>
-        <th>Sypigg</th>
-        <th>Diff</th>
-        <th>Hem 2</th>
-        <th>Sysmex</th>
-        <th>IFOB</th>
-        <th>Architect</th>
-        <th>ESR</th>
-        <th>VIT D</th>
+        <th class="headingClick classVistaHeading" title="Vista">Vista</th>
+        @*<th class="headingClick classSerology" title="Serology">Serology</th>*@
+        <th class="headingClick classUA" title="UA">UA</th>
+        <th class="headingClick classCoag" title="Coag">Coag</th>
+        @*<th class="headingClick classHem1" title="Hem1">Hem 1</th>*@
+        @*<th class="headingClick" title="Stools">Stools</th>*@
+        @*<th class="headingClick" title="DSX">DSX</th>*@
+        <th class="headingClick" title="Variant">Variant</th>
+        <th class="headingClick" title="Centaur">Centaur</th>
+        @*<th class="headingClick" title="USR">USR</th>*@
+        <th class="headingClick" title="Sypigg">Sypigg</th>
+        <th class="headingClick" title="Diff">Diff</th>
+        @*<th class="headingClick" title="Hem2">Hem 2</th>*@
+        <th class="headingClick" title="Sysmex">Sysmex</th>
+        <th class="headingClick" title="IFOB">IFOB</th>
+        @*<th class="headingClick" title="Architect">Architect</th>*@
+        <th class="headingClick" title="ESR">ESR</th>
+        <th class="headingClick" title="VITD">VIT D</th>
     </tr>
 
 @foreach (var item in Model) {

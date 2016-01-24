@@ -97,5 +97,26 @@ namespace LabScheduler2.Web.Controllers
                 return View();
             }
         }
+
+        public ActionResult GetQualifiedEmployees(string bench)
+        {
+            LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
+            List<Qualification> qualifications = db.Qualifications.Where(c => c.bench.Description == bench).ToList();
+            List<QualifiedEmployee> employees = new List<QualifiedEmployee>();
+
+            foreach(Qualification q in qualifications)
+            {
+                employees.Add(new QualifiedEmployee { FirstName = q.employee.FirstName, Id = q.employee.Id, LastName = q.employee.LastName });
+            }
+            return Json(employees,JsonRequestBehavior.AllowGet);
+        }
+
+        public class QualifiedEmployee
+        {
+            public int Id { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+
+        }
     }
 }

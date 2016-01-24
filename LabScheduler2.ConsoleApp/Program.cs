@@ -65,7 +65,7 @@ namespace LabScheduler2.ConsoleApp
                 Console.ReadLine();
             }
 
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
             Console.WriteLine("S");
             Console.ReadLine();
             foreach (Bench _bench in db.Benches.ToList())
@@ -198,7 +198,6 @@ namespace LabScheduler2.ConsoleApp
                     _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Nirali").FirstOrDefault(), Status = QualificationStatus.Qualified });
                     _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
                     _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
 
                 }
 
