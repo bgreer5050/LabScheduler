@@ -28,6 +28,8 @@ namespace LabManager.DAL
         public DbSet<Qualification> Qualifications { get; set; }
         public DbSet<Shift> Shifts { get; set; }
         public DbSet<ScheduleBlock> ScheduleBlocks { get; set; }
+
+        public System.Data.Entity.DbSet<LabScheduler2.Domain.Employee> Employees { get; set; }
         //public DbSet<Hour> Hours { get; set; }
     }
 }

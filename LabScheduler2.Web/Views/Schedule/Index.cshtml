@@ -16,14 +16,16 @@
 
 <script>
 
+   
+
     $(document).ready(function () {
         $('.headingClick').click(function () {
-            $("#divQualifiedEmployees").attr('title', 'Qualified Employees');
+            $("#divQualifiedEmployees").attr('title', $(this).attr('title') +' ' + 'Qualified Employees');
 
             $.ajax({
-                url: 'Qualifications/GetQualifiedEmployees',
+                url: 'Qualifications/GetQualifiedEmployeesTable',
                 data: 'bench=' + $(this).attr('title'),
-                success: ShowDialog,
+                success: ShowQualifiedEmployees,
                 error: function (jqXHR, textStatus, errorThrown) {
                     if (jqXHR.status == 404) {
                         ShowError('LabManger Server Failed To Respond');
@@ -51,20 +53,34 @@
 
         });
     }
-    function ShowDialog()
+    function ShowQualifiedEmployees(data)
     {
-        alert('show');
-    }
-
-    function ShowQualifiedEmployees()
-    {
+      //  alert(data);
+        $("#divQualifiedEmployees").html(data);
         $('#divQualifiedEmployees').dialog({
-            modal: true,
-            autoOpen: true
-
-
+            modal: false,
+            autoOpen: true,
+            close: CleanUpQualifiedEmployeesDiv
         });
     }
+
+    function CleanUpQualifiedEmployeesDiv()
+    {
+        alert('s');
+        $("#divQualifiedEmployees").html();
+        $("#divQualifiedEmployees").attr('title', 'Qualified Employees');
+    }
+
+
+    //function ShowQualifiedEmployees()
+    //{
+    //    $('#divQualifiedEmployees').dialog({
+    //        modal: true,
+    //        autoOpen: true
+
+
+    //    });
+    //}
 
 </script>
 
@@ -84,8 +100,9 @@
 </p>
 <table class="table table-condensed table-striped">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Hour)
+        <th>          
+
+            @*@Html.Lab(Model.Hour.Month.ToString());*@
         </th>
         <th class="headingClick classVistaHeading" title="Vista">Vista</th>
         @*<th class="headingClick classSerology" title="Serology">Serology</th>*@
@@ -98,7 +115,7 @@
         <th class="headingClick" title="Centaur">Centaur</th>
         @*<th class="headingClick" title="USR">USR</th>*@
         <th class="headingClick" title="Sypigg">Sypigg</th>
-        <th class="headingClick" title="Diff">Diff</th>
+        <th class="headingClick" title="Diffs">Diff</th>
         @*<th class="headingClick" title="Hem2">Hem 2</th>*@
         <th class="headingClick" title="Sysmex">Sysmex</th>
         <th class="headingClick" title="IFOB">IFOB</th>
@@ -110,15 +127,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Hour)
+    
            
-
-
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                    @Html.Label(item.Hour.Month.ToString() + "/" + item.Hour.Day + "/" + item.Hour.Year.ToString() + " " + item.Hour.DayOfWeek.ToString() + " - " + item.Hour.Hour.ToString())
+     
         </td>
         <td></td>
         <td style="background-color:aquamarine">MG</td>
@@ -132,12 +144,10 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    
+      
+     
+      
 
     </tr>
 }

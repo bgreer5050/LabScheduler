@@ -111,6 +111,23 @@ namespace LabScheduler2.Web.Controllers
             return Json(employees,JsonRequestBehavior.AllowGet);
         }
 
+
+        public ActionResult GetQualifiedEmployeesTable(string bench)
+        {
+            LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
+            List<Qualification> qualifications = db.Qualifications.Where(c => c.bench.Description == bench).ToList();
+            List<QualifiedEmployee> employees = new List<QualifiedEmployee>();
+            List<Employee> emps = new List<Employee>();
+
+            foreach (Qualification q in qualifications)
+            {
+                emps.Add(q.employee);
+            }
+
+            return PartialView(emps);
+
+        }
+
         public class QualifiedEmployee
         {
             public int Id { get; set; }

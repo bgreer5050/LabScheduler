@@ -334,6 +334,7 @@
     <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Qualifications\Index.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Qualifications\GetQualifiedEmployeesTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
