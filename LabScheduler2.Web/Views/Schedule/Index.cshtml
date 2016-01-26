@@ -16,11 +16,13 @@
 
 <script>
 
-   
+    var title;
 
     $(document).ready(function () {
         $('.headingClick').click(function () {
-            $("#divQualifiedEmployees").attr('title', $(this).attr('title') +' ' + 'Qualified Employees');
+            title = $(this).attr('title');
+            alert(title);
+            //$("#divQualifiedEmployees").attr('title', title + ' ' + 'Qualified Employees').dialog();
 
             $.ajax({
                 url: 'Qualifications/GetQualifiedEmployeesTable',
@@ -57,18 +59,23 @@
     {
       //  alert(data);
         $("#divQualifiedEmployees").html(data);
+        $("#divQualifiedEmployees").attr('title', title +' Qualified Employees').dialog();
         $('#divQualifiedEmployees').dialog({
             modal: false,
             autoOpen: true,
             close: CleanUpQualifiedEmployeesDiv
+           
         });
     }
 
     function CleanUpQualifiedEmployeesDiv()
     {
-        alert('s');
-        $("#divQualifiedEmployees").html();
-        $("#divQualifiedEmployees").attr('title', 'Qualified Employees');
+       
+        $("#divQualifiedEmployees").html('');
+        $("#divQualifiedEmployees").dialog('destroy');
+        title = null;
+        
+       
     }
 
 
