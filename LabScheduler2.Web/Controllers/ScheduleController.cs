@@ -22,6 +22,23 @@ namespace LabScheduler2.Web.Controllers
             return View(Blocks);
         }
 
+        public ActionResult Today()
+        {
+            LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
+            int intMonth = DateTime.Today.Month;
+            int intDay = DateTime.Today.Day;
+            int intYear = DateTime.Today.Year;
+
+            List<Domain.ScheduleBlock> Blocks = db.ScheduleBlocks.Where(c=>c.Hour.Day== intDay && c.Hour.Month == intMonth && c.Hour.Year == intYear).ToList();
+            foreach (Domain.ScheduleBlock block in Blocks)
+            {
+
+            }
+
+            return View("Index",Blocks);
+        }
+
+
 
         public void ScheduleTony()
         {
