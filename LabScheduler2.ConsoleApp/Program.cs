@@ -13,289 +13,48 @@ namespace LabScheduler2.ConsoleApp
     {
         static void Main(string[] args)
         {
-    //        System.Data.SqlClient.SqlConnectionStringBuilder bui = new System.Data.SqlClient.SqlConnectionStringBuilder();
 
-    //        string providerName = "System.Data.SqlClient";
-    //        string serverName = ".";
-    //        string dataBaseName = "LabManager.DAL.LabContext";
-
-          
-
-    //        SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
-    //        sqlBuilder.DataSource = serverName;
-    //        sqlBuilder.InitialCatalog = dataBaseName;
-    //        sqlBuilder.IntegratedSecurity = true;
-
-    //        string providerString = sqlBuilder.ToString();
-
-    //      EntityConnectionStringBuilder entityBuilder = new EntityConnectionStringBuilder();
-
-
-
-    //        entityBuilder.Provider = providerName;
-    //        entityBuilder.ProviderConnectionString = providerString;
-    //        entityBuilder.Metadata = @"res://*/LabContext.csdl|
-    //                        res://*/LabContext.ssdl|
-    //                        res://*/LabContext.msl";
-
-    //        using (EntityConnection conn =
-    //new EntityConnection(entityBuilder.ToString()))
-    //        {
-    //            conn.Open();
-    //            Console.WriteLine("Just testing the connection.");
-    //            conn.Close();
-    //        }
-           // Console.ReadLine();
-            //throw new NotImplementedException();
-
+            SetupQualifications.Execute();
             LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
-            //LabScheduler2.BLL.LabRepository repo = new BLL.LabRepository(db);
 
-            //List<Qualification> qs = db.Qualifications.ToList();
-            //db.Qualifications.RemoveRange(qs);
-            //db.SaveChanges();
-
-            List<Qualification> qualifications = new List<Qualification>();
+            List<Qualification> qualifications = db.Qualifications.ToList();
 
 
             foreach (Qualification q in db.Qualifications.ToList())
             {
                 Console.WriteLine(q.employee.FirstName);
                 Console.WriteLine(q.bench.Description);
-                Console.ReadLine();
+                //Console.ReadLine();
             }
 
-            throw new NotImplementedException();
-            Console.WriteLine("S");
-            Console.ReadLine();
-            foreach (Bench _bench in db.Benches.ToList())
+
+            DateTime dtStart = new DateTime(2016, 1, 1, 0, 0, 0);
+            int intHourCounter = 1;
+
+           while(dtStart.DayOfYear < 3)
             {
+                Hour hour = new Hour();
+                
+                List<BenchStatus> benchStatuses = new List<BenchStatus>();
 
-                Console.WriteLine(_bench.Description);
-
-                if (_bench.Description.Contains("Sysmex")==true)
+                foreach(Bench bench in db.Benches.ToList())
                 {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Maribeth").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-
-                    db.SaveChanges();
+                    BenchStatus status = new BenchStatus { StatusCode = 1 };
+                    benchStatuses.Add(status);
+                   
                 }
-
-                if (_bench.Description == "Diffs")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Jan").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Maribeth").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-                }
-
-                if (_bench.Description == "Variant")
-                {
-
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Evelyn").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Jan").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Maribeth").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Michelle").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Nirali").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
+                
+                db.Hours.Add(hour);
 
 
-                }
-                if (_bench.Description == "Coag")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Jan").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Maribeth").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Michelle").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Nirali").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
+                dtStart = dtStart.AddHours(1);
+                Console.WriteLine(dtStart.Date.ToLongDateString());
 
-                }
-
-                if (_bench.Description == "ESR")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Evelyn").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Jan").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Maribeth").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Michelle").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Nirali").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-                }
-
-                if (_bench.Description == "Centaur")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Jan").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Nirali").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-                }
-
-                if (_bench.Description == "UA")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Evelyn").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-                }
-
-                if (_bench.Description == "Sypigg")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Maribeth").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Michelle").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Nirali").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-                }
-
-                if (_bench.Description == "IFOB")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Michelle").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-                }
-
-                if (_bench.Description == "Vista")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Jerry").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Tony").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-
-                }
-
-                if (_bench.Description == "VIT D")
-                {
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Evelyn").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Imelda").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Jan").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Maribeth").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Marita").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Michelle").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Nirali").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Violeta").FirstOrDefault(), Status = QualificationStatus.Qualified });
-                    _bench.Qualifications.Add(new Qualification { bench = _bench, employee = db.HourlyEmployees.Where(c => c.FirstName == "Wilberto").FirstOrDefault(), Status = QualificationStatus.Qualified });
-
-                }
-
-
+                intHourCounter += 1;
+               
             }
-
-
-            db.SaveChanges();
-
-            throw new NotImplementedException();
-
-            //List<ScheduleBlock> blocks =  repo.GetAllScheduleBlocks().ToList();
-
-            //foreach(ScheduleBlock b in blocks)
-            //{
-            //    Console.WriteLine(b.Bench.Description);
-            //    Console.WriteLine(b.Hour.ToLongDateString());
-            //    Console.ReadLine();
-            //}
-
-            //Console.ReadLine();
-
-            //int counter = db.ScheduleBlocks.Where(c => c.Hour.Year != 2016).Count();
-
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    foreach (ScheduleBlock block in db.ScheduleBlocks.Where(c => c.Hour.Year != 2016).Take(5000))
-            //    {
-
-            //        if (block.Hour.Year != 2016)
-            //        {
-            //            int adj = block.Hour.Year - 2016;
-            //            adj = adj * -1;
-            //            block.Hour = block.Hour.AddYears(adj);
-            //            Console.WriteLine(counter);
-            //            counter -= 1;
-            //        }
-
-            //    }
-            //    db.SaveChanges(); 
-            //}
-
-
-
-            //Console.WriteLine("DONE");
-            //Console.ReadLine();
-
-
-
-            //throw new NotImplementedException();
-
-            //DateTime dt = new DateTime(2016, 1, 1,0,0,0);
-
-            //Console.WriteLine(dt.TimeOfDay.ToString());
-            //foreach (Bench bench in db.Benches.Where(c=>c.Id > 44).OrderBy(c=>c.Id).ToList())
-            //{
-            //    for (var v = 1; v < 8761; v++)
-            //    {
-
-            //        Console.WriteLine(dt.Day.ToString());
-            //        Console.WriteLine(dt.Month.ToString());
-            //        Console.WriteLine(dt.Year.ToString());
-            //        Console.WriteLine(dt.Hour.ToString());
-            //        // Console.WriteLine(dt.Date.Date.ToLongTimeString());
-            //        Console.WriteLine(bench.Description);
-
-            //        ScheduleBlock block = new ScheduleBlock();
-            //        block.Bench = bench;
-            //        block.Hour = dt;
-
-            //        db.ScheduleBlocks.Add(block);
-
-            //        dt = dt.AddHours(1.0);
-            //    }
-            //    Console.WriteLine(db.SaveChanges().ToString());
-            //}
-            //Console.WriteLine("DONE");
-            //Console.ReadLine();
-
-
-            // Console.WriteLine(dt.Date.Date.ToString());
-
-            //foreach (Bench bench in db.Benches.ToList())
-            //{
-            //    for (var i = 0; i < 366; i++)
-            //    {
-            //        for (var y = 1; y < 25; y++)
-            //        {
-            //            ScheduleBlock block = new ScheduleBlock();
-            //           // block.Hour.Start = dt.
-            //        }
-            //    }
-            //}
-
-
-            //int x = db.SaveChanges();
-            //Console.WriteLine(x.ToString());
-            //Console.ReadLine();
+            Console.WriteLine("Done");
+            Console.ReadLine();
         }
     }
 }

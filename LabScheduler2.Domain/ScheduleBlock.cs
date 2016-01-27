@@ -13,7 +13,7 @@ namespace LabScheduler2.Domain
         public virtual HourlyEmployee Employee { get; set; }
         public virtual Bench Bench { get; set; }
 
-        public virtual DateTime Hour { get; set; }
+        public virtual Hour Hour { get; set; }
 
         public virtual BenchStatus BenchStatus { get; set; }
     }

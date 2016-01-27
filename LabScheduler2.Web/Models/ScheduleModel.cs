@@ -5,9 +5,9 @@ using System.Web;
 
 namespace LabScheduler2.Web.Models
 {
-    public class ScheduleModel
-    {
-        List<Domain.ScheduleBlock> blocks { get; set; }
+    //public class ScheduleModel
+    //{
+    //    List<Domain.ScheduleBlock> blocks { get; set; }
         
-    }
+    //}
 }

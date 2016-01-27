@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 
 namespace LabScheduler2.Domain
 {
-    public enum BenchStatus
+   
+   public class BenchStatus
     {
-        Running,
-        IdleScheduled,
-        IdleNoOperatorAvailable,
-        DownUnscheduledMaintenance,
-        DownScheduledMaintenance
-
+        public int Id { get; set; }
+        public Employee employee { get; set; }
+        public int StatusCode { get; set; }
     }
 
    

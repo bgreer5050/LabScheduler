@@ -37,10 +37,10 @@ namespace LabScheduler2.BLL
             return _context.Qualifications.ToList();
         }
 
-        public IEnumerable<ScheduleBlock> GetAllScheduleBlocks()
-        {
-            return _context.ScheduleBlocks.ToList();
-        }
+        //public IEnumerable<ScheduleBlock> GetAllScheduleBlocks()
+        //{
+        //    return _context.ScheduleBlocks.ToList();
+        //}
 
         public IEnumerable<Shift> GetAllShifts()
         {

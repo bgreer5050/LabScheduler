@@ -13,8 +13,8 @@ namespace LabScheduler2.Web.Controllers
         {
             LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
 
-            List<Domain.ScheduleBlock> Blocks = db.ScheduleBlocks.Take(1500).ToList();
-            foreach(Domain.ScheduleBlock block in Blocks)
+            List<Domain.Hour> Blocks = db.Hours.Take(1500).ToList();
+            foreach(Domain.Hour block in Blocks)
             {
                 
             }
@@ -24,18 +24,19 @@ namespace LabScheduler2.Web.Controllers
 
         public ActionResult Today()
         {
-            LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
-            int intMonth = DateTime.Today.Month;
-            int intDay = DateTime.Today.Day;
-            int intYear = DateTime.Today.Year;
+            //LabManager.DAL.LabContext db = new LabManager.DAL.LabContext();
+            //int intMonth = DateTime.Today.Month;
+            //int intDay = DateTime.Today.Day;
+            //int intYear = DateTime.Today.Year;
 
-            List<Domain.ScheduleBlock> Blocks = db.ScheduleBlocks.Where(c=>c.Hour.Day== intDay && c.Hour.Month == intMonth && c.Hour.Year == intYear).ToList();
-            foreach (Domain.ScheduleBlock block in Blocks)
-            {
+            //List<Domain.ScheduleBlock> Blocks = db.ScheduleBlocks.Where(c=>c.Hour.Day== intDay && c.Hour.Month == intMonth && c.Hour.Year == intYear).ToList();
+            //foreach (Domain.ScheduleBlock block in Blocks)
+            //{
 
-            }
+            //}
 
-            return View("Index",Blocks);
+            //return View("Index",Blocks);
+            return null;
         }
 
 
